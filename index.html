@@ -116,6 +116,13 @@ html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3,html[lang="ar"] .brand{
   nav ul.open{display:flex}
   .burger{display:block}
   .fleet-flex,.k-box,.kontakt .grid2{grid-template-columns:1fr}
+  nav{gap:10px}
+  .brand{font-size:.85rem;gap:8px}
+  .brand img{height:38px}
+}
+@media (max-width:600px){
+  .brand span{display:none}          /* keep just the logo, free room for the switcher */
+  .langsel{padding:6px 8px;font-size:.82rem}
 }
 </style>
 </head>
@@ -136,10 +143,10 @@ html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3,html[lang="ar"] .brand{
         <li><a class="btn btn-gold" href="#kontakt" data-i18n="nav_cta">Jetzt anfragen</a></li>
       </ul>
       <select id="langSel" class="langsel" aria-label="Sprache / Language">
-        <option value="de">DE · Deutsch</option>
-        <option value="en">EN · English</option>
-        <option value="ar">AR · العربية</option>
-        <option value="ro">RO · Română</option>
+        <option value="de">🇩🇪 DE</option>
+        <option value="en">🇬🇧 EN</option>
+        <option value="ar">🇸🇦 AR</option>
+        <option value="ro">🇷🇴 RO</option>
       </select>
       <button class="burger" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
     </nav>
