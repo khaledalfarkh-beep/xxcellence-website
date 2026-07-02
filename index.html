@@ -222,14 +222,15 @@ footer{border-top:1px solid var(--line);padding:44px 0;background:var(--bg2)}
         <div class="k-item"><div class="ico">✉️</div>
           <div><b>E-Mail</b><a class="plain" href="mailto:kontakt@xxcellence-gmbh.de">kontakt@xxcellence-gmbh.de</a></div></div>
       </div>
-      <form id="kontaktform" action="send.php" method="post" novalidate>
+      <form id="kontaktform" action="https://api.web3forms.com/submit" method="post" novalidate>
+        <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="Neue Anfrage über die XXCellence-Website">
+        <input type="hidden" name="from_name" value="XXCellence Website">
         <div><label>Name</label><input type="text" name="name" required></div>
         <div><label>E-Mail</label><input type="email" name="email" required></div>
         <div><label>Nachricht</label><textarea name="message" rows="5" required></textarea></div>
         <!-- Honeypot gegen Spam-Bots (für Menschen unsichtbar) -->
-        <div style="position:absolute;left:-9999px" aria-hidden="true">
-          <label>Website</label><input type="text" name="website" tabindex="-1" autocomplete="off">
-        </div>
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <button class="btn btn-gold" type="submit">Nachricht senden</button>
         <p id="form-status" style="display:none;margin:0;padding:14px 18px;border-radius:10px;font-size:.95rem"></p>
       </form>
@@ -265,20 +266,20 @@ document.getElementById('kontaktform').addEventListener('submit', async function
 
   btn.disabled = true; btn.textContent = 'Wird gesendet…';
   try {
-    const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+    const res = await fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
     const data = await res.json();
-    if (data.ok) {
+    if (data.success) {
       show('Vielen Dank! Ihre Nachricht wurde gesendet – wir melden uns schnellstmöglich.', true);
       form.reset();
     } else {
-      show(data.error || 'Versand fehlgeschlagen. Bitte schreiben Sie uns direkt an kontakt@xxcellence-gmbh.de.', false);
+      show(data.message || 'Versand fehlgeschlagen. Bitte schreiben Sie uns direkt an kontakt@xxcellence-gmbh.de.', false);
     }
   } catch (err) {
-    // Fallback (z. B. lokale Vorschau ohne PHP): E-Mail-Programm öffnen
-    const s = encodeURIComponent('Anfrage über die Website von ' + form.name.value);
-    const b = encodeURIComponent('Name: ' + form.name.value + '\nE-Mail: ' + form.email.value + '\n\n' + form.message.value);
-    window.location.href = 'mailto:kontakt@xxcellence-gmbh.de?subject=' + s + '&body=' + b;
-    show('Direktversand hier nicht verfügbar – Ihr E-Mail-Programm wurde geöffnet.', false);
+    show('Verbindungsfehler. Bitte versuchen Sie es erneut oder schreiben Sie an kontakt@xxcellence-gmbh.de.', false);
   }
   btn.disabled = false; btn.textContent = 'Nachricht senden';
 });
