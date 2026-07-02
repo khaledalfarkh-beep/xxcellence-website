@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XXCellence GmbH | Transport &amp; Logistik aus Torgau</title>
+<meta name="description" content="XXCellence GmbH – Ihr Partner für Paketlogistik, Komplettladungen, Express- und Sonderfahrten. Zuverlässig unterwegs, jeden Tag.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>
+:root{
+  --bg:#0b0b0d; --bg2:#131316; --panel:#1a1a1f;
+  --gold:#e9c368; --gold-2:#c9a24a; --gold-dark:#8a6b25;
+  --txt:#f3efe6; --muted:#b9b2a3; --line:rgba(233,195,104,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Avenir Next","Segoe UI",system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+img{max-width:100%;display:block}
+a{color:var(--gold);text-decoration:none}
+.wrap{max-width:1150px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-weight:700;letter-spacing:.02em}
+h2{font-size:clamp(1.6rem,3.2vw,2.4rem);margin-bottom:.5rem}
+.kicker{color:var(--gold);text-transform:uppercase;letter-spacing:.28em;font-size:.78rem;font-weight:600;margin-bottom:.8rem}
+.sub{color:var(--muted);max-width:640px}
+section{padding:96px 0}
+
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(11,11,13,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--txt);font-weight:700;letter-spacing:.08em}
+.brand img{height:44px;width:auto;border-radius:6px}
+.brand span b{color:var(--gold)}
+nav ul{display:flex;gap:28px;list-style:none;align-items:center}
+nav a{color:var(--txt);font-size:.95rem;opacity:.9}
+nav a:hover{color:var(--gold)}
+.btn{display:inline-block;padding:12px 26px;border-radius:999px;font-weight:600;letter-spacing:.03em;transition:.2s}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#151107}
+.btn-gold:hover{filter:brightness(1.1)}
+.btn-line{border:1px solid var(--gold);color:var(--gold)}
+.btn-line:hover{background:rgba(233,195,104,.12)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--gold);font-size:1.3rem;border-radius:8px;padding:4px 12px}
+
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden;padding:140px 0 80px;
+  background:url("assets/hero-logo.jpg") center/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,11,13,.92) 35%,rgba(11,11,13,.45) 70%,rgba(11,11,13,.25))}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(2.2rem,5.5vw,4rem);line-height:1.12;margin:0 0 1.2rem}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{max-width:560px;color:var(--muted);font-size:1.08rem;margin-bottom:2rem}
+.hero .cta{display:flex;gap:16px;flex-wrap:wrap}
+
+/* services */
+.grid{display:grid;gap:22px;margin-top:44px}
+.g4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-top:2px solid var(--gold-dark);border-radius:14px;padding:30px 26px;transition:.25s}
+.card:hover{transform:translateY(-5px);border-top-color:var(--gold);box-shadow:0 14px 40px rgba(0,0,0,.5)}
+.card .ico{font-size:1.9rem;margin-bottom:14px}
+.card h3{font-size:1.12rem;margin-bottom:.5rem;color:var(--gold)}
+.card p{color:var(--muted);font-size:.95rem}
+
+/* fleet */
+.fleet{background:var(--bg2)}
+.fleet-flex{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;margin-top:40px}
+.fleet-img{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.55)}
+.fleet ul{list-style:none;display:grid;gap:18px}
+.fleet li{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-left:3px solid var(--gold);border-radius:10px;padding:18px 22px}
+.fleet li b{color:var(--gold)}
+.fleet li span{display:block;color:var(--muted);font-size:.92rem}
+
+/* stats band */
+.band{background:url("assets/fleet-gold.jpg") center/cover no-repeat;position:relative;padding:70px 0}
+.band::after{content:"";position:absolute;inset:0;background:rgba(11,11,13,.78)}
+.band .wrap{position:relative;z-index:2;display:flex;gap:40px;justify-content:space-around;flex-wrap:wrap;text-align:center}
+.band .n{font-size:2.4rem;font-weight:800;color:var(--gold)}
+.band .l{color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-size:.8rem}
+
+/* karriere */
+.karriere{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+.k-box{margin-top:40px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:48px 40px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.k-box h3{font-size:1.6rem;margin-bottom:.6rem}
+.k-box h3 em{font-style:normal;color:var(--gold)}
+.k-box p{color:var(--muted);margin-bottom:1.4rem}
+.k-mail{display:flex;align-items:center;gap:10px;background:rgba(233,195,104,.08);border:1px dashed var(--gold-dark);border-radius:12px;padding:16px 20px;font-weight:600;word-break:break-all}
+
+/* kontakt */
+.kontakt .grid2{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:44px;align-items:start}
+.k-item{display:flex;gap:16px;margin-bottom:26px}
+.k-item .ico{font-size:1.4rem;color:var(--gold);width:34px}
+.k-item b{display:block}
+.k-item span,.k-item a.plain{color:var(--muted)}
+form{display:grid;gap:16px;background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:32px}
+label{font-size:.85rem;color:var(--muted);letter-spacing:.04em}
+input,textarea{width:100%;margin-top:6px;background:var(--bg);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:13px 15px;color:var(--txt);font:inherit}
+input:focus,textarea:focus{outline:none;border-color:var(--gold)}
+form .btn{border:none;cursor:pointer;font:inherit}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:44px 0;background:var(--bg2)}
+.f-flex{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
+.f-flex .links{display:flex;gap:22px}
+
+@media (max-width:860px){
+  nav ul{display:none;position:absolute;top:72px;left:0;right:0;background:rgba(11,11,13,.97);flex-direction:column;padding:24px;border-bottom:1px solid var(--line)}
+  nav ul.open{display:flex}
+  .burger{display:block}
+  .fleet-flex,.k-box,.kontakt .grid2{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <img src="assets/logo-header.jpg" alt="XXCellence GmbH Logo">
+      <span>XX<b>CELLENCE</b>&nbsp;GMBH</span>
+    </a>
+    <nav>
+      <button class="burger" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
+      <ul>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#fuhrpark">Fuhrpark</a></li>
+        <li><a href="#karriere">Karriere</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a class="btn btn-gold" href="#kontakt">Jetzt anfragen</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="kicker">Transport &amp; Logistik · Torgau</div>
+    <h1>Wir bewegen, was<br>für Sie <em>zählt.</em></h1>
+    <p>Die XXCellence GmbH steht für zuverlässige Transporte auf höchstem Niveau –
+       von der Paketzustellung bis zur Komplettladung. Pünktlich. Flexibel. Jeden Tag.</p>
+    <div class="cta">
+      <a class="btn btn-gold" href="#leistungen">Unsere Leistungen</a>
+      <a class="btn btn-line" href="#kontakt">Kontakt aufnehmen</a>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section id="leistungen">
+  <div class="wrap">
+    <div class="kicker">Was wir tun</div>
+    <h2>Leistungen, auf die Sie sich verlassen können</h2>
+    <p class="sub">Vom einzelnen Paket bis zur kompletten Ladung – wir bringen Ihre Sendung sicher ans Ziel.</p>
+    <div class="grid g4">
+      <div class="card"><div class="ico">📦</div><h3>Paket- &amp; KEP-Logistik</h3>
+        <p>Zustellung auf der letzten Meile mit moderner Transporterflotte – schnell, sorgfältig und planbar.</p></div>
+      <div class="card"><div class="ico">🚚</div><h3>Komplettladungen</h3>
+        <p>Direktverkehre ohne Umschlag: Ihre Ware fährt exklusiv und ohne Zwischenstopp zum Empfänger.</p></div>
+      <div class="card"><div class="ico">⚡</div><h3>Sonder- &amp; Expressfahrten</h3>
+        <p>Wenn es eilig ist: kurzfristige Verfügbarkeit und termingenaue Zustellung – auch am Wochenende.</p></div>
+      <div class="card"><div class="ico">🗺️</div><h3>Spedition &amp; Teilladungen</h3>
+        <p>Wirtschaftliche Lösungen für Teilpartien – regional und deutschlandweit, individuell disponiert.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FUHRPARK -->
+<section class="fleet" id="fuhrpark">
+  <div class="wrap">
+    <div class="kicker">Unsere Flotte</div>
+    <h2>Ein Fuhrpark, der liefert</h2>
+    <p class="sub">Moderne, regelmäßig gewartete Fahrzeuge – besetzt mit erfahrenen Fahrerinnen und Fahrern.</p>
+    <div class="fleet-flex">
+      <div class="fleet-img"><img src="assets/fleet.jpg" alt="Transporterflotte der XXCellence GmbH"></div>
+      <ul>
+        <li><b>Transporter bis 3,5 t</b><span>Wendig und effizient – ideal für Paketlogistik und Stadtverkehr.</span></li>
+        <li><b>Kastenwagen mit Ladungssicherung</b><span>Für empfindliche Güter und Sonderfahrten jeder Art.</span></li>
+        <li><b>Kapazität nach Bedarf</b><span>Skalierbare Flotte – wir wachsen mit Ihren Anforderungen.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="band">
+  <div class="wrap">
+    <div><div class="n">7 Tage</div><div class="l">die Woche unterwegs</div></div>
+    <div><div class="n">100 %</div><div class="l">Einsatz für Ihre Sendung</div></div>
+    <div><div class="n">04861</div><div class="l">Zuhause in Torgau</div></div>
+  </div>
+</div>
+
+<!-- KARRIERE -->
+<section class="karriere" id="karriere">
+  <div class="wrap">
+    <div class="kicker">Karriere</div>
+    <h2>Steig ein bei XXCellence</h2>
+    <p class="sub">Wir suchen Menschen, die anpacken – ob am Steuer oder in der Disposition.</p>
+    <div class="k-box">
+      <div>
+        <h3>Deine <em>Initiativbewerbung</em></h3>
+        <p>Kein passendes Stellenangebot? Kein Problem. Überzeuge uns einfach direkt –
+           schick uns deine Initiativbewerbung mit Lebenslauf und ein paar Zeilen zu dir.
+           Wir melden uns schnell und unkompliziert.</p>
+        <a class="btn btn-gold" href="mailto:bewerbung@xxcellence-gmbh.de?subject=Initiativbewerbung">Jetzt bewerben</a>
+      </div>
+      <div class="k-mail">✉️&nbsp; <a href="mailto:bewerbung@xxcellence-gmbh.de">bewerbung@xxcellence-gmbh.de</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="kontakt" id="kontakt">
+  <div class="wrap">
+    <div class="kicker">Kontakt</div>
+    <h2>Sprechen Sie mit uns</h2>
+    <p class="sub">Ob Angebot, Partnerschaft oder Rückfrage – wir sind für Sie erreichbar.</p>
+    <div class="grid2">
+      <div>
+        <div class="k-item"><div class="ico">📍</div>
+          <div><b>XXCellence GmbH</b><span>Dahlener Straße 4<br>04861 Torgau OT Beckwitz</span></div></div>
+        <div class="k-item"><div class="ico">📞</div>
+          <div><b>Telefon</b><a class="plain" href="tel:+491631902587">0163&nbsp;190&nbsp;25&nbsp;87</a></div></div>
+        <div class="k-item"><div class="ico">✉️</div>
+          <div><b>E-Mail</b><a class="plain" href="mailto:kontakt@xxcellence-gmbh.de">kontakt@xxcellence-gmbh.de</a></div></div>
+      </div>
+      <form id="kontaktform" action="send.php" method="post" novalidate>
+        <div><label>Name</label><input type="text" name="name" required></div>
+        <div><label>E-Mail</label><input type="email" name="email" required></div>
+        <div><label>Nachricht</label><textarea name="message" rows="5" required></textarea></div>
+        <!-- Honeypot gegen Spam-Bots (für Menschen unsichtbar) -->
+        <div style="position:absolute;left:-9999px" aria-hidden="true">
+          <label>Website</label><input type="text" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <button class="btn btn-gold" type="submit">Nachricht senden</button>
+        <p id="form-status" style="display:none;margin:0;padding:14px 18px;border-radius:10px;font-size:.95rem"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap f-flex">
+    <div>© 2026 XXCellence GmbH · Dahlener Straße 4 · 04861 Torgau OT Beckwitz</div>
+    <div class="links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('kontaktform').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  const form = this;
+  const status = document.getElementById('form-status');
+  const btn = form.querySelector('button[type=submit]');
+
+  const show = (msg, ok) => {
+    status.style.display = 'block';
+    status.style.background = ok ? 'rgba(105,190,110,.12)' : 'rgba(220,90,90,.12)';
+    status.style.border = '1px solid ' + (ok ? 'rgba(105,190,110,.5)' : 'rgba(220,90,90,.5)');
+    status.style.color = ok ? '#8fdc94' : '#f0a0a0';
+    status.textContent = msg;
+  };
+
+  if (!form.name.value.trim() || !form.email.value.trim() || !form.message.value.trim()) {
+    show('Bitte alle Felder ausfüllen.', false); return;
+  }
+
+  btn.disabled = true; btn.textContent = 'Wird gesendet…';
+  try {
+    const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+    const data = await res.json();
+    if (data.ok) {
+      show('Vielen Dank! Ihre Nachricht wurde gesendet – wir melden uns schnellstmöglich.', true);
+      form.reset();
+    } else {
+      show(data.error || 'Versand fehlgeschlagen. Bitte schreiben Sie uns direkt an kontakt@xxcellence-gmbh.de.', false);
+    }
+  } catch (err) {
+    // Fallback (z. B. lokale Vorschau ohne PHP): E-Mail-Programm öffnen
+    const s = encodeURIComponent('Anfrage über die Website von ' + form.name.value);
+    const b = encodeURIComponent('Name: ' + form.name.value + '\nE-Mail: ' + form.email.value + '\n\n' + form.message.value);
+    window.location.href = 'mailto:kontakt@xxcellence-gmbh.de?subject=' + s + '&body=' + b;
+    show('Direktversand hier nicht verfügbar – Ihr E-Mail-Programm wurde geöffnet.', false);
+  }
+  btn.disabled = false; btn.textContent = 'Nachricht senden';
+});
+</script>
+</body>
+</html>
