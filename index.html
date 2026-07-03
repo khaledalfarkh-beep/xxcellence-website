@@ -246,10 +246,7 @@ html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3,html[lang="ar"] .brand{
         <div class="k-item"><div class="ico">✉️</div>
           <div><b data-i18n="kon_email_label">E-Mail</b><a class="plain" href="mailto:kontakt@xxcellence-gmbh.de">kontakt@xxcellence-gmbh.de</a></div></div>
       </div>
-      <form id="kontaktform" action="https://api.web3forms.com/submit" method="post" novalidate>
-        <input type="hidden" name="access_key" value="5ec960cf-967e-492e-b643-af57e8ade590">
-        <input type="hidden" name="subject" value="Neue Anfrage über die XXCellence-Website">
-        <input type="hidden" name="from_name" value="XXCellence Website">
+      <form id="kontaktform" action="send.php" method="post" novalidate>
         <div><label data-i18n="form_name">Name</label><input type="text" name="name" required></div>
         <div><label data-i18n="form_email">E-Mail</label><input type="email" name="email" required></div>
         <div><label data-i18n="form_message">Nachricht</label><textarea name="message" rows="5" required></textarea></div>
